@@ -1,59 +1,40 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# TP Laravel – Évaluation 3h
+## Objectif général
+Développer une mini-application Laravel intitulée “Student Manager”, permettant de gérer
+des filières et des étudiants.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Consignes générales
+-    Durée : 3 heures
+-    Framework : Laravel 10+
+-    Base de données : MySQL
+-    Le rendu doit inclure : migrations, modèles, relations, contrôleurs, vues Blade, validation, CRUD complet, layout général.
 
-## About Laravel
+### 1. Mise en place du projet
+-   Créer un projet Laravel : laravel new student_manager
+-   Configurer la base MySQL dans .env.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 2. Migrations + Modèles
+    Tables    : filieres(id, nom, timestamps) et etudiants(id, nom, email, date_naissance, filiere_id, timestamps).
+    Relations : Une filière a plusieurs étudiants ; un étudiant appartient à une filière.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 3. Contrôleurs
+Créer FiliereController et EtudiantController avec : index, create, store, destroy.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 4. Fonctionnalités
+    A. Gestion des filières : liste, création, suppression (interdite si étudiants présents).
+    B. Gestion des étudiants : liste, création, suppression.
 
-## Learning Laravel
+### 5. Layout Blade
+Créer layouts/app.blade.php avec header, menu, footer et @yield('content').
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 6. Routes
+    Route::resource('filieres', FiliereController::class)->except(['show','edit','update']);
+    Route::resource('etudiants', EtudiantController::class)->except(['show','edit','update']);
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Bonus avancé : Recherche des étudiants
+Créer une recherche avancée multi-critères : nom, email, filière, date de naissance (intervalle).
+Résultats paginés, recherche globale optionnelle.
+### Barème
+Migrations+modèles:4, Relations:2, Contrôleurs:4, CRUD Filières:3, CRUD Étudiants:4,
+Layout:2, Bonus:1.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
