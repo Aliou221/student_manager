@@ -4,6 +4,13 @@
 
 @section('content')
     <section class="my-6">
+
+        @if (session('success'))
+            <p class="p-4 rounded-lg bg-green-100 text-sm font-medium text-green-700 border border-green-300 my-5">
+                {{ session('success') }}
+            </p>
+        @endif
+
         <div class="bg-white px-5 py-2 my-4 rounded-lg shadow-xs">
             <h3 class="text-lg font-semibold">Recherche des étudiants</h3>
 
@@ -55,11 +62,6 @@
 
             </form>
         </div>
-        @if (session('success'))
-            <p class="p-4 rounded-lg bg-green-100 text-sm font-medium text-green-700 border border-green-300 my-5">
-                {{ session('success') }}
-            </p>
-        @endif
 
         <div class="flex items-center justify-between mb-6">
             <h1 class="text-2xl font-bold text-gray-800">Liste des étudiants</h1>
@@ -108,7 +110,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button onclick="return confirm('Voulez vous vraiment supprimer cette filière ?')" class="text-white cursor-pointer bg-linear-to-br from-red-800 to-red-600 size-8 p-1 rounded-md flex items-center justify-center">
+                                    <button onclick="return confirm('Voulez vous vraiment supprimer cet étudiant ?')" class="text-white cursor-pointer bg-linear-to-br from-red-800 to-red-600 size-8 p-1 rounded-md flex items-center justify-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5">
                                             <path d="M10 11v6"/>
                                             <path d="M14 11v6"/>

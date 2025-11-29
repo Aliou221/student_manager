@@ -1,0 +1,11 @@
+ALIOU CISSE
+Lien vers git: https://github.com/Aliou221/student_manager.git
+
+Recuperation:
+    - git clone https://github.com/Aliou221/student_manager.git
+
+Installation des dependances du projet:
+    - composer install
+
+Lancer le projet:
+    php artisan serve

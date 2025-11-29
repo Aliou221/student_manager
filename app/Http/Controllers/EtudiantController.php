@@ -69,4 +69,10 @@ class EtudiantController extends Controller
 
         return redirect()->route('etudiants.index')->with('success', $etudiant['nom']. ' a été ajouté avec succès!');
     }
+
+    public function destroy(Etudiant $etudiant)
+    {
+        $etudiant->delete();
+        return redirect()->back()->with('success', $etudiant->nom . ' a été supprimé avec succeès !');
+    }
 }
