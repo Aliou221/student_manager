@@ -25,7 +25,7 @@ A. Gestion des filières : liste, création, suppression (interdite si étudiant
 B. Gestion des étudiants : liste, création, suppression.
 
 ### 5. Layout Blade
-Créer layouts/app.blade.php avec header, menu, footer et @yield('content').
+Créer *layouts/app.blade.php* avec header, menu, footer et *@yield('content')*.
 
 ### 6. Routes
 ```php
@@ -35,6 +35,7 @@ Créer layouts/app.blade.php avec header, menu, footer et @yield('content').
 ### Bonus avancé : Recherche des étudiants
 Créer une recherche avancée multi-critères : nom, email, filière, date de naissance (intervalle).
 Résultats paginés, recherche globale optionnelle.
+
 ### Barème
 Migrations+modèles:4, Relations:2, Contrôleurs:4, CRUD Filières:3, CRUD Étudiants:4,
 Layout:2, Bonus:1.
