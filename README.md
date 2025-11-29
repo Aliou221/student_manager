@@ -14,23 +14,24 @@ des filières et des étudiants.
 -   Configurer la base MySQL dans .env.
 
 ### 2. Migrations + Modèles
-    Tables    : filieres(id, nom, timestamps) et etudiants(id, nom, email, date_naissance, filiere_id, timestamps).
-    Relations : Une filière a plusieurs étudiants ; un étudiant appartient à une filière.
+Tables    : filieres(id, nom, timestamps) et etudiants(id, nom, email, date_naissance, filiere_id, timestamps).
+Relations : Une filière a plusieurs étudiants ; un étudiant appartient à une filière.
 
 ### 3. Contrôleurs
 Créer FiliereController et EtudiantController avec : index, create, store, destroy.
 
 ### 4. Fonctionnalités
-    A. Gestion des filières : liste, création, suppression (interdite si étudiants présents).
-    B. Gestion des étudiants : liste, création, suppression.
+A. Gestion des filières : liste, création, suppression (interdite si étudiants présents).
+B. Gestion des étudiants : liste, création, suppression.
 
 ### 5. Layout Blade
 Créer layouts/app.blade.php avec header, menu, footer et @yield('content').
 
 ### 6. Routes
+```php
     Route::resource('filieres', FiliereController::class)->except(['show','edit','update']);
     Route::resource('etudiants', EtudiantController::class)->except(['show','edit','update']);
-
+```
 ### Bonus avancé : Recherche des étudiants
 Créer une recherche avancée multi-critères : nom, email, filière, date de naissance (intervalle).
 Résultats paginés, recherche globale optionnelle.
